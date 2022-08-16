@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Herr+Von+Muellerhoff&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(/img/sagesmask\ amber\ coal\ texture.jpg);
+    background-size: cover;
+    font-family: 'Lato', sans-serif;
+}
+
+.container {
+    width:  90%;
+    max-width: 1000px;
+    padding: 40px 20px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card {
+    width: 100%;
+    max-width: 550px;
+    position: relative;
+    color: #fff;
+    transition: 0.3s ease all;
+    transform: rotateY(0deg);
+    transform-style: preserve-3d;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.card.active {
+    transform: rotateY(180deg);
+}
+
+.card > div {
+    padding: 30px;
+    border-radius: 15px;
+    min-height: 315px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 10px 10px 0 rgba(90, 116, 148, 0.3);
+}
+
+.card .front {
+    width: 100%;
+    background: url(../img/bg-tarjeta/bg-tarjeta-01.jpg);
+    background-size: cover;
+}
+
+.front .brand-logo {
+    text-align: right;
+    min-height: 50px;
+}
+
+.front .brand-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-width: 80px;
+}
+
+.front .chip {
+    width: 100%;
+    max-width: 50px;
+    margin-bottom: 20px;
+}
+
+.front .label {
+    font-size: 16px;
+    color: #7d8994;
+    margin: 5px;
+}
+
+.front .number,
+.front .fullname,
+.front .expiration {
+    color: #fff;
+    font-size: 22px;
+    text-transform: uppercase;
+}
+
+.front .flex{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.back {
+    background-image: url(../img/bg-tarjeta/bg-tarjeta-01.jpg);
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+}
+
+.back .magnetic-bar {
+    height: 40px;
+    background: rgb(0, 0, 5);
+    width: 100%;
+    position: absolute;
+    top: 30px;
+    left: 0;
+}
+
+.back .data {
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.back .data p {
+    margin-bottom: 5px;
+
+}
+
+.back .data #signature {
+    width: 70%;
+}
+
+.back .data #signature .signature {
+    height: 40px;
+    background: repeating-linear-gradient(rgb(241, 243, 226) 0, rgb(241, 243, 226) 5px, rgb(255, 255, 255) 5px, rgb(255, 255, 255) 10px );
+}
+
+.back .data #signature .signature p {
+    font-family: 'Herr Von Muellerhoff', cursive;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 40px;
+    padding: 0 10px;
+    color: #000;
+}
+
+.back .data #ccv {
+    width: 20%;
+} 
+
+.back .data #ccv .ccv {
+    background: #fff;
+    height: 40px;
+    color: #000;
+    padding: 10px;
+    text-align: center;
+}
+
+.back .legend {
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.back .bank {
+    font-size: 14px;
+    color: #fff;
+}
+
+
+.btn-container .btn-open {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    line-height: 20px;
+    position: relative;
+    top: -25px;
+    z-index: 3;
+    border-radius: 100%;
+    box-shadow: 5px 4px 8px rgba(24,56,182,0.4);
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-container .btn-open.active {
+    transform: rotate(45deg);
+}
+
+.btn-container .btn-open img{
+    width: 50px;
+    height: 50px;
+}
+
+.btn-container .btn-open:hover {
+    background: #000;
+}
+
+.card-form {
+    background: #fff;
+    width: 100%;
+    max-width: 700px;
+    padding: 150px 30px 30px 30px;
+    border-radius: 10px;
+    position: relative;
+    top: -150px;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    transition: clip-path 0.3s ease-out;
+}
+
+.card-form.active {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.card-form label {
+    display: block;
+    color: #7d8994;
+    margin: 5px;
+    font-size: 16px;
+}
+
+.card-form input,
+.card-form select,
+.btn-send {
+    border: 2px solid #ced6e0;
+    font-size: 18px;
+    height: 50px;
+    width: 100%;
+    padding: 5px 12px;
+    transition: 0.3s ease all;
+    border-radius: 5px;
+}
+
+.card-form input:hover,
+.card-form select:hover {
+    border: 2px solid #93bded ;
+}
+
+.card-form input:focus,
+.card-form select:focus {
+    outline: rgb(4, 4, 4);
+    box-shadow:  1px 7px 10px -5px rgba(90, 116, 148, 0.3);
+}
+
+.card-form input {
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+
+.card-form .flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-form .expire {
+    width: 100%;
+}
+
+.card-form .cvv {
+    min-width: 100px;
+}
+
+.card-form .group-select {
+    width: 100%;
+    margin-right: 15px;
+    position: relative;
+}
+
+.card-form select {
+    -webkit-appearance: none;
+}
+
+.card-form .btn-send {
+    border: none;
+    text-transform: capitalize;
+    padding: 10px;
+    font-size: 18px;
+    color: #ffffff;
+    background-color: #0000007c;
+    box-shadow: 2px 2px 10px 0px rgba(0, 0, 5, 0.685);
+}
+
+.card-form .btn-send:hover {
+    background-color: rgba(0, 0, 0, 0.716);
+}
